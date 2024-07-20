@@ -9,6 +9,8 @@ import { collection, getDocs } from "firebase/firestore";
 import { CircleDollarSign, CircleFadingPlus } from "lucide-react";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic'
+
 export default async function ProductPage() {
   const querySnapshot = await getDocs(collection(db, "products"));
   console.log("products:");

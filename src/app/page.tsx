@@ -9,13 +9,15 @@ import { CircleDollarSign, CircleFadingPlus, CirclePlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const querySnapshot = await getDocs(collection(db, "orders"));
   console.log("Orders:");
 
   const formattedOrders: Order[] = formatOrders(querySnapshot);
 
-console.log(JSON.stringify(formattedOrders, null, 2));
+//console.log(JSON.stringify(formattedOrders, null, 2));
 
   return (
     <main className="flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 w-full">
