@@ -100,7 +100,7 @@ export const dataColumns: ColumnDef<Product>[] = [
             <DropdownMenuContent align="end">
               <DropdownMenuItem
                 onClick={() =>
-                  navigator.clipboard.writeText(prod.id.toString())
+                  prod.id && navigator.clipboard.writeText(prod.id.toString())
                 }
               >
                 Copy ID

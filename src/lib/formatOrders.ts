@@ -1,10 +1,6 @@
-import { Order } from '@/types';
+import { Order, OrderProduct } from '@/types';
 import { format } from 'date-fns';
 
-interface Product {
-  name: string;
-  qty: number;
-}
 
 
 interface FirestoreProduct {
@@ -37,7 +33,7 @@ const formatOrders = (querySnapshot: any): Order[] => {
     const orderDate = format(new Date(data.orderDate), 'dd MMM yyyy HH:mm:ss');
 
     // Map the products array
-    const products: Product[] = data.products.map(product => ({
+    const products: OrderProduct[] = data.products.map(product => ({
       name: product.product.name,
       qty: product.quantity
     }));
@@ -49,7 +45,7 @@ const formatOrders = (querySnapshot: any): Order[] => {
       total: data.totalPrice,
       orderStatus: data.orderStatus,
       orderDate: orderDate,
-      products: products
+      products: products 
     });
   });
 

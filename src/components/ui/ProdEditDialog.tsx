@@ -42,7 +42,7 @@ const ProductEditDialog: React.FC<ProductEditDialogProps> = ({ product }) => {
   }
   const handleSaveChanges =async  () => {
     setIsUpdating(true);
-    await updateQtyandPrice(product.id, qty, price);
+    await updateQtyandPrice(product.id as string, qty, price);
     toast({
         title: "Product updated",
         description: "The product has been updated successfully.",

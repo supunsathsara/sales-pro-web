@@ -1,16 +1,14 @@
-export interface Product {
-  id: string;
+export interface OrderProduct {
   name: string;
   qty: number;
 }
-
 export interface Order {
     id:string;
   orderId:string;
   total: number;
   orderStatus: string;
   orderDate: string;
-  products: Product[];
+  products: OrderProduct[];
 }
 
 export interface FirestoreProduct {
@@ -40,6 +38,7 @@ export interface FirestoreOrder {
 //     "description": ""
 
 export interface Product{
+  id?: string;
   name: string;
   qty: number;
   imageUrl: string;
