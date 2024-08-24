@@ -26,11 +26,16 @@ interface FirestoreOrder {
 const formatOrders = (querySnapshot: any): Order[] => {
   let orders: Order[] = [];
 
+  if(querySnapshot.empty) {
+    return orders;
+  }
+
   querySnapshot.forEach((doc: any) => {
     const data: FirestoreOrder = doc.data();
 
     // Format the date
-    const orderDate = format(new Date(data.orderDate), 'dd MMM yyyy HH:mm:ss');
+    const orderDate = format(new Date(data.orderDate * 1), 'dd MMM yyyy HH:mm:ss');
+
 
     // Map the products array
     const products: OrderProduct[] = data.products.map(product => ({
